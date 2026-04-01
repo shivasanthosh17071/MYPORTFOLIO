@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import {
   Github,
   Linkedin,
-  Twitter,
   MessageCircle,
   Mail,
   Send,
+  Phone,
 } from "lucide-react";
 import { useState, FormEvent } from "react";
 import SectionHeading from "./SectionHeading";
@@ -21,15 +21,10 @@ const socials = [
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/shiva-santhosh-reddy-devarapally-352319293/",
   },
-  // {
-  //   icon: Twitter,
-  //   label: "Twitter/X",
-  //   href: "https://twitter.com", // update if you have real account
-  // },
   {
     icon: MessageCircle,
     label: "WhatsApp",
-    href: "https://wa.me/919182868227", // ✅ your number added
+    href: "https://wa.me/919182868227",
   },
 ];
 
@@ -45,7 +40,9 @@ const ContactSection = () => {
     e.preventDefault();
     const subject = `New Project Inquiry: ${formData.type}`;
     const body = `Name: ${formData.name}\nEmail: ${formData.email}\nProject Type: ${formData.type}\n\n${formData.message}`;
-    window.location.href = `mailto:shivasanthoshqt@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:shivasanthoshqt@gmail.com?subject=${encodeURIComponent(
+      subject,
+    )}&body=${encodeURIComponent(body)}`;
   };
 
   return (
@@ -70,6 +67,7 @@ const ContactSection = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {/* FORM */}
           <motion.form
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -87,6 +85,7 @@ const ContactSection = () => {
               }
               className="w-full bg-transparent border-b border-border py-4 text-foreground placeholder:text-muted-foreground font-body text-sm focus:outline-none focus:border-primary transition-colors"
             />
+
             <input
               type="email"
               required
@@ -97,6 +96,7 @@ const ContactSection = () => {
               }
               className="w-full bg-transparent border-b border-border py-4 text-foreground placeholder:text-muted-foreground font-body text-sm focus:outline-none focus:border-primary transition-colors"
             />
+
             <select
               required
               value={formData.type}
@@ -114,6 +114,7 @@ const ContactSection = () => {
               <option value="Consulting">Consulting</option>
               <option value="Other">Other</option>
             </select>
+
             <textarea
               required
               placeholder="Tell me about your project..."
@@ -124,6 +125,7 @@ const ContactSection = () => {
               }
               className="w-full bg-transparent border-b border-border py-4 text-foreground placeholder:text-muted-foreground font-body text-sm focus:outline-none focus:border-primary transition-colors resize-none"
             />
+
             <button
               type="submit"
               className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-mono text-sm font-semibold uppercase tracking-wider hover:scale-105 active:scale-95 transition-transform duration-150"
@@ -132,6 +134,7 @@ const ContactSection = () => {
             </button>
           </motion.form>
 
+          {/* CONTACT INFO */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -139,6 +142,7 @@ const ContactSection = () => {
             transition={{ delay: 0.15 }}
             className="space-y-10"
           >
+            {/* EMAIL */}
             <div>
               <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-3">
                 Email
@@ -147,10 +151,26 @@ const ContactSection = () => {
                 href="mailto:shivasanthoshqt@gmail.com"
                 className="font-display text-base sm:text-xl md:text-2xl font-bold hover:text-primary transition-colors flex items-center gap-2 break-all"
               >
-                <Mail size={20} className="shrink-0" />{" "}
+                <Mail size={20} className="shrink-0" />
                 shivasanthoshqt@gmail.com
               </a>
             </div>
+
+            {/* 📞 PHONE (NEW) */}
+            <div>
+              <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-3">
+                Phone
+              </p>
+              <a
+                href="tel:+919182868227"
+                className="font-display text-base sm:text-xl md:text-2xl font-bold hover:text-primary transition-colors flex items-center gap-2"
+              >
+                <Phone size={20} className="shrink-0" />
+                +91 9182868227
+              </a>
+            </div>
+
+            {/* SOCIALS */}
             <div>
               <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-4">
                 Socials

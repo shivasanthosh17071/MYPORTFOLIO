@@ -24,7 +24,8 @@ const Footer = () => {
           ))}
         </div>
         <p className="font-mono text-xs text-muted-foreground">
-          © {new Date().getFullYear()} · shivasanthoshqt@gmail.com · Built with React + Vite
+          © {new Date().getFullYear()} · shivasanthoshqt@gmail.com · Built with
+          React + Vite
         </p>
       </div>
     </footer>

@@ -21,10 +21,17 @@ const wordChild = {
 };
 
 const HeroSection = () => {
-  const { display: scrambledName } = useTextScramble("SHIVA SANTHOSH REDDY", 1200, 40);
+  const { display: scrambledName } = useTextScramble(
+    "SHIVA SANTHOSH REDDY",
+    1200,
+    40,
+  );
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-20 lg:pt-24">
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-20 lg:pt-24"
+    >
       {/* Floating geometric shapes */}
       <motion.div
         animate={{ rotate: 360, y: [0, -20, 0] }}
@@ -73,7 +80,12 @@ const HeroSection = () => {
             </motion.div>
 
             {/* Word-by-word hero text */}
-            <motion.div variants={wordReveal} initial="hidden" animate="visible" className="overflow-hidden">
+            <motion.div
+              variants={wordReveal}
+              initial="hidden"
+              animate="visible"
+              className="overflow-hidden"
+            >
               {["Full", "Stack"].map((word) => (
                 <motion.span
                   key={word}
@@ -89,7 +101,11 @@ const HeroSection = () => {
               <motion.h1
                 initial={{ y: 80, opacity: 0, filter: "blur(8px)" }}
                 animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-                transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                transition={{
+                  duration: 0.7,
+                  delay: 0.3,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
                 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold uppercase tracking-tight leading-[0.9] text-primary"
               >
                 Dev.
@@ -102,7 +118,7 @@ const HeroSection = () => {
               transition={{ delay: 1.5 }}
               className="font-mono text-sm md:text-base text-muted-foreground mt-6 tracking-wider"
             >
-              I craft fast, scalable, beautiful web experiences.
+              Built with Speed & Driven by Passion.
             </motion.p>
 
             <motion.div
@@ -182,8 +198,13 @@ const HeroSection = () => {
         transition={{ delay: 2.5 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Scroll</span>
-        <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+          Scroll
+        </span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+        >
           <ArrowDown size={16} className="text-muted-foreground" />
         </motion.div>
       </motion.div>

@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
 const NAME = "SHIVA SANTHOSH REDDY";
-const SUBTITLE_WORDS = ["FULL", "STACK", "DEV."];
+const SUBTITLE_WORDS = ["FULL", "STACK", "DEVELOPER"];
 
 const IntroAnimation = ({ onComplete }: { onComplete: () => void }) => {
   const [phase, setPhase] = useState(0);
@@ -13,10 +13,10 @@ const IntroAnimation = ({ onComplete }: { onComplete: () => void }) => {
       setTimeout(() => setPhase(1), 300), // letters start
       setTimeout(() => setPhase(2), 2000), // subtitle + line visible
 
-      // ✅ LONG STAY (4 seconds pause)
+      //  LONG STAY (4 seconds pause)
       setTimeout(() => setPhase(3), 6000),
 
-      // ✅ hide after exit finishes
+      //  hide after exit finishes
       setTimeout(() => {
         setShow(false);
         onComplete();

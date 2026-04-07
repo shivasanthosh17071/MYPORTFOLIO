@@ -7,7 +7,7 @@ import {
   Send,
   Phone,
 } from "lucide-react";
-import { useState, FormEvent } from "react";
+import { useState } from "react";
 import SectionHeading from "./SectionHeading";
 
 const socials = [
@@ -36,13 +36,55 @@ const ContactSection = () => {
     message: "",
   });
 
-  const handleSubmit = (e: FormEvent) => {
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("");
+
+  // 🔥 UPDATED SUBMIT FUNCTION
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const subject = `New Project Inquiry: ${formData.type}`;
-    const body = `Name: ${formData.name}\nEmail: ${formData.email}\nProject Type: ${formData.type}\n\n${formData.message}`;
-    window.location.href = `mailto:shivasanthoshqt@gmail.com?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(body)}`;
+
+    setLoading(true);
+    setStatus("Sending...");
+
+    try {
+      const res = await fetch(
+        "https://contactpagebackend.vercel.app/api/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: "", // optional (you can add input later)
+            subject: formData.type,
+            message: formData.message,
+          }),
+        },
+      );
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setStatus(" Message sent successfully!");
+
+        // reset form
+        setFormData({
+          name: "",
+          email: "",
+          type: "",
+          message: "",
+        });
+      } else {
+        setStatus(" Failed to send message");
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus(" Server error");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -53,7 +95,6 @@ const ContactSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
           className="mb-16"
         >
           <h2 className="font-display text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-extrabold uppercase leading-[0.95]">
@@ -68,13 +109,7 @@ const ContactSection = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* FORM */}
-          <motion.form
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
-            onSubmit={handleSubmit}
-            className="space-y-6"
-          >
+          <motion.form onSubmit={handleSubmit} className="space-y-6">
             <input
               type="text"
               required
@@ -83,7 +118,7 @@ const ContactSection = () => {
               onChange={(e) =>
                 setFormData({ ...formData, name: e.target.value })
               }
-              className="w-full bg-transparent border-b border-border py-4 text-foreground placeholder:text-muted-foreground font-body text-sm focus:outline-none focus:border-primary transition-colors"
+              className="w-full bg-transparent border-b border-border py-4 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-primary"
             />
 
             <input
@@ -94,7 +129,7 @@ const ContactSection = () => {
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
               }
-              className="w-full bg-transparent border-b border-border py-4 text-foreground placeholder:text-muted-foreground font-body text-sm focus:outline-none focus:border-primary transition-colors"
+              className="w-full bg-transparent border-b border-border py-4 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-primary"
             />
 
             <select
@@ -103,7 +138,7 @@ const ContactSection = () => {
               onChange={(e) =>
                 setFormData({ ...formData, type: e.target.value })
               }
-              className="w-full bg-transparent border-b border-border py-4 text-muted-foreground font-body text-sm focus:outline-none focus:border-primary transition-colors appearance-none"
+              className="w-full bg-transparent border-b border-border py-4 text-muted-foreground text-sm focus:outline-none focus:border-primary"
             >
               <option value="" disabled>
                 Project Type
@@ -123,56 +158,53 @@ const ContactSection = () => {
               onChange={(e) =>
                 setFormData({ ...formData, message: e.target.value })
               }
-              className="w-full bg-transparent border-b border-border py-4 text-foreground placeholder:text-muted-foreground font-body text-sm focus:outline-none focus:border-primary transition-colors resize-none"
+              className="w-full bg-transparent border-b border-border py-4 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-primary resize-none"
             />
 
             <button
               type="submit"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-mono text-sm font-semibold uppercase tracking-wider hover:scale-105 active:scale-95 transition-transform duration-150"
+              disabled={loading}
+              className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-white text-sm font-semibold uppercase tracking-wider hover:scale-105 active:scale-95 transition-transform disabled:opacity-50"
             >
-              Send Message <Send size={16} />
+              {loading ? "Sending..." : "Send Message"} <Send size={16} />
             </button>
+
+            {/* STATUS MESSAGE */}
+            {status && (
+              <p className="text-sm text-muted-foreground">{status}</p>
+            )}
           </motion.form>
 
           {/* CONTACT INFO */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
-            transition={{ delay: 0.15 }}
-            className="space-y-10"
-          >
-            {/* EMAIL */}
+          <motion.div className="space-y-10">
             <div>
-              <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-3">
+              <p className="text-xs text-muted-foreground uppercase mb-3">
                 Email
               </p>
               <a
                 href="mailto:shivasanthoshqt@gmail.com"
-                className="font-display text-base sm:text-xl md:text-2xl font-bold hover:text-primary transition-colors flex items-center gap-2 break-all"
+                className="text-xl font-bold flex items-center gap-2"
               >
-                <Mail size={20} className="shrink-0" />
+                <Mail size={20} />
                 shivasanthoshqt@gmail.com
               </a>
             </div>
 
-            {/* 📞 PHONE (NEW) */}
             <div>
-              <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-3">
+              <p className="text-xs text-muted-foreground uppercase mb-3">
                 Phone
               </p>
               <a
                 href="tel:+919182868227"
-                className="font-display text-base sm:text-xl md:text-2xl font-bold hover:text-primary transition-colors flex items-center gap-2"
+                className="text-xl font-bold flex items-center gap-2"
               >
-                <Phone size={20} className="shrink-0" />
+                <Phone size={20} />
                 +91 9182868227
               </a>
             </div>
 
-            {/* SOCIALS */}
             <div>
-              <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-4">
+              <p className="text-xs text-muted-foreground uppercase mb-4">
                 Socials
               </p>
               <div className="flex gap-3">
@@ -184,8 +216,7 @@ const ContactSection = () => {
                       href={s.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label={s.label}
-                      className="w-12 h-12 border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-200 hover:-translate-y-1"
+                      className="w-12 h-12 border flex items-center justify-center hover:text-primary hover:border-primary transition"
                     >
                       <Icon size={18} />
                     </a>

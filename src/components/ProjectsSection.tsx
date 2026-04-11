@@ -27,8 +27,29 @@ const projects = [
     url: "https://blacknykee.santhoshdev.space/",
     category: "E-Commerce · Fashion",
   },
+
+  // ✅ NEW PROJECT ADDED AS 04
   {
     num: "04",
+    title: "Flame Kitchen Delights",
+    desc: "A visually rich food website showcasing delicious dishes with modern UI and engaging layout.",
+    tags: ["React + Vite", "Tailwind"],
+    url: "http://flame-kitchen-delights.vercel.app/",
+    category: "Food Website",
+  },
+
+  // ✅ NEW PROJECT ADDED AS 05
+  {
+    num: "05",
+    title: "FitForge",
+    desc: "A complete fullstack web application designed to help users manage their fitness journey by tracking workouts, progress, and goals. The app includes secure authentication, dynamic dashboards, and efficient data handling.",
+    tags: ["React + Vite", "Tailwind"],
+    url: "https://pixel-perfect-replication-six.vercel.app/",
+    category: "Gym Workouts",
+  },
+
+  {
+    num: "06",
     title: "TicketHere",
     desc: "Online ticket booking platform with smooth UI and booking experience.",
     tags: ["React + Vite", "Tailwind"],
@@ -36,7 +57,7 @@ const projects = [
     category: "Ticket Booking App",
   },
   {
-    num: "05",
+    num: "07",
     title: "Kronix Host",
     desc: "Modern web hosting platform with dark tech UI.",
     tags: ["React + Vite"],
@@ -44,7 +65,7 @@ const projects = [
     category: "SaaS · Web Hosting",
   },
   {
-    num: "06",
+    num: "08",
     title: "AllToolz",
     desc: "Free browser-based tools platform for PDF & images.",
     tags: ["React + Vite"],
@@ -52,29 +73,14 @@ const projects = [
     category: "Utility Platform",
   },
   {
-    num: "07",
+    num: "09",
     title: "Food Express",
     desc: "Full-stack food delivery app inspired by Swiggy.",
     tags: ["React", "Node.js", "Express"],
     url: "https://swiggy.santhoshdev.space/",
     category: "Food Delivery App",
   },
-  {
-    num: "08",
-    title: "Keerthi Designs",
-    desc: "Creative portfolio showcasing design work.",
-    tags: ["React + Vite"],
-    url: "http://keerthi-designs-showcase.vercel.app/",
-    category: "Portfolio",
-  },
-  {
-    num: "09",
-    title: "SS Herbal Beauty",
-    desc: "Elegant brand website for skincare products.",
-    tags: ["React + Vite"],
-    url: "https://ss-herbal.vercel.app/",
-    category: "Beauty Brand",
-  },
+
   {
     num: "10",
     title: "Echologics Techno Park",
@@ -84,7 +90,6 @@ const projects = [
     category: "Corporate Website · Startup",
   },
 ];
-
 const ProjectsSection = () => {
   return (
     <section id="work" className="py-24 md:py-32">

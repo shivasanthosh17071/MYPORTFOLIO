@@ -31,7 +31,7 @@ const CountUp = ({ target, suffix }: { target: number; suffix: string }) => {
   return (
     <motion.span
       ref={ref}
-      className="font-display text-5xl md:text-7xl font-extrabold text-primary"
+      className="font-display text-3xl sm:text-5xl md:text-7xl font-extrabold text-primary"
       animate={count === target ? { scale: [1.1, 1] } : {}}
       transition={{ type: "spring", stiffness: 300, damping: 10 }}
     >

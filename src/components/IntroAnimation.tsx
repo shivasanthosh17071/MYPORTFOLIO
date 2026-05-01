@@ -128,7 +128,7 @@ const IntroAnimation = ({ onComplete }: { onComplete: () => void }) => {
                     ease: [0.16, 1, 0.3, 1],
                   }}
                   className="font-display font-extrabold text-foreground"
-                  style={{ fontSize: "clamp(1.5rem, 5vw, 5rem)" }}
+                  style={{ fontSize: "clamp(1rem, 4vw, 5rem)" }}
                 >
                   {char === " " ? "\u00A0" : char}
                 </motion.span>

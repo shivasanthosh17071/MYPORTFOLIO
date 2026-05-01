@@ -164,7 +164,7 @@ const ContactSection = () => {
             <button
               type="submit"
               disabled={loading}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-white text-sm font-semibold uppercase tracking-wider hover:scale-105 active:scale-95 transition-transform disabled:opacity-50"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-black text-sm font-semibold uppercase tracking-wider hover:scale-105 active:scale-95 transition-transform disabled:opacity-50"
             >
               {loading ? "Sending..." : "Send Message"} <Send size={16} />
             </button>

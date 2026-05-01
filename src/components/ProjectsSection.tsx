@@ -28,7 +28,6 @@ const projects = [
     category: "E-Commerce · Fashion",
   },
 
-  // ✅ NEW PROJECT ADDED AS 04
   {
     num: "04",
     title: "Flame Kitchen Delights",
@@ -38,7 +37,6 @@ const projects = [
     category: "Food Website",
   },
 
-  // ✅ NEW PROJECT ADDED AS 05
   {
     num: "05",
     title: "FitForge",
@@ -58,6 +56,14 @@ const projects = [
   },
   {
     num: "07",
+    title: "Keerthi Interiors",
+    desc: "A premium interior design website showcasing modern home and office interiors with elegant UI, smooth user experience, and strong brand presentation. Built as a freelancing project.",
+    tags: ["React + Vite", "Tailwind"],
+    url: "https://keerthi-interiors.vercel.app/",
+    category: "Interior Design Website · Freelance",
+  },
+  {
+    num: "08",
     title: "Kronix Host",
     desc: "Modern web hosting platform with dark tech UI.",
     tags: ["React + Vite"],
@@ -65,7 +71,7 @@ const projects = [
     category: "SaaS · Web Hosting",
   },
   {
-    num: "08",
+    num: "09",
     title: "AllToolz",
     desc: "Free browser-based tools platform for PDF & images.",
     tags: ["React + Vite"],
@@ -73,7 +79,7 @@ const projects = [
     category: "Utility Platform",
   },
   {
-    num: "09",
+    num: "10",
     title: "Food Express",
     desc: "Full-stack food delivery app inspired by Swiggy.",
     tags: ["React", "Node.js", "Express"],
@@ -82,7 +88,7 @@ const projects = [
   },
 
   {
-    num: "10",
+    num: "11",
     title: "Echologics Techno Park",
     desc: "The official website for Echologics Techno Park, a software testing startup. Clean, professional, and conversion-focused landing page.",
     tags: ["React + Vite", "Bootstrap"],

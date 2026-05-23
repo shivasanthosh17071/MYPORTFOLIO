@@ -7,7 +7,7 @@ const projects = [
     num: "01",
     title: "Mana Ride",
     desc: "A local vehicle booking platform that allows users to rent bikes and cars from verified local vendors. Focused on simplicity, speed, and a seamless booking experience.",
-    tags: ["React + Vite", "Bootstrap"],
+    tags: ["React", "Node.js", "MongoDB", "Express.js", "Bootstrap"],
     url: "https://www.manaride.in/",
     category: "Vehicle Booking Platform",
   },

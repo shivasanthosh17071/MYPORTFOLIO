@@ -30,7 +30,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-20 lg:pt-24"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-0 md:pt-20 lg:pt-24"
     >
       {/* Floating geometric shapes */}
       <motion.div
@@ -185,7 +185,7 @@ const HeroSection = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-foreground opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-foreground" />
               </span>
-              ⚡ Available for Hire
+               Freelancer⚡
             </motion.div>
           </motion.div>
         </div>

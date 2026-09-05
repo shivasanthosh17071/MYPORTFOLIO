@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
-const NAME = "SHIVA SANTHOSH REDDY";
+const NAME = "SHIVA SANTHOSH ";
 const SUBTITLE_WORDS = ["FULL", "STACK", "DEVELOPER"];
 
 const IntroAnimation = ({ onComplete }: { onComplete: () => void }) => {

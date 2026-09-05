@@ -40,7 +40,7 @@ const projects = [
     title: "HK Self Drive Cars",
     desc: "A car rental platform enabling users to browse available vehicles, check availability, and make bookings online.",
     tags: ["React", "Node.js", "Express.js", "MongoDB", "Bootstrap"],
-    url: "https://hkselfdrivecars-ec4yfuhg3-shiva-santhoshs-projects.vercel.app/",
+    url: "https://hkselftest.vercel.app/",
     category: "Car Rental Platform · Full Stack",
   },
   {
@@ -75,7 +75,7 @@ const projects = [
     url: "https://www.manaride.in/",
     category: "Vehicle Booking Platform · Full Stack",
   },
-];
+]
 const ProjectsSection = () => {
   return (
     <section id="work" className="py-24 md:py-32">
